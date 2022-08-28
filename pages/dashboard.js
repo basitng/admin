@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-import React, { useId } from "react";
+import React from "react";
 import AppBar from "../src/components/AppBar";
 import Card from "../src/components/Card";
 import DataTable from "../src/components/DataTable";
@@ -12,21 +12,21 @@ export default function dashboard() {
       title: "Articles",
       value: 10,
       path: "articles/",
-      id: useId(),
+      id: Math.random() * 100000000,
       snack: "snack1",
     },
     {
       title: "Contents",
       value: 50,
       path: "contents/",
-      id: useId(),
+      id: Math.random() * 100000000,
       snack: "snack2",
     },
     {
       title: "Sermon",
       value: 20,
       path: "sermon/",
-      id: useId(),
+      id: Math.random() * 100000000,
       snack: "snack3",
     },
   ];
