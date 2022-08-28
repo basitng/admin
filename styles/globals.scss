@@ -4,21 +4,21 @@
   box-sizing: border-box;
   font-family: "Axiforma-Regular";
 }
-
 @font-face {
   font-family: "Axiforma-Regular";
   src: url("../public/fonts/Axiforma-Regular.woff");
 }
+
+$light: #fff;
 body {
-  background-color: #fff;
+  background-color: $light;
   font-family: "Axiforma-Regular";
 }
-
 img {
   width: 100%;
 }
-
 a {
   color: #555;
   text-decoration: underline;
-}/*# sourceMappingURL=globals.css.map */
+  // background-color: #3947a8b9;
+}
