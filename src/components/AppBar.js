@@ -33,6 +33,7 @@ export default function NavBar() {
         <Box sx={{ display: "flex" }}>
           {links.map(({ pathname, id, active, path }) => (
             <Button
+              key={id}
               disableElevation
               variant={active ? "contained" : "text"}
               sx={{
@@ -45,6 +46,9 @@ export default function NavBar() {
               {pathname}
             </Button>
           ))}
+          <Tooltip title={"Notifications"}>
+            <Box></Box>
+          </Tooltip>
           <Tooltip title={"User Account"}>
             <Avatar sx={{ background: "#3948a8dc", cursor: "pointer" }}>
               A

@@ -51,6 +51,9 @@ a {
   position: relative;
   display: grid;
   place-content: center;
+  @media screen and (max-width: 600px) {
+    height: 20vh;
+  }
   &::before {
     content: "";
     width: 100%;
@@ -67,5 +70,22 @@ a {
     z-index: 100;
     color: #fff;
     text-align: center;
+  }
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 49px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 50%;
+    @extend .snack3;
+    height: 100%;
+    border-radius: 49px;
   }
 }

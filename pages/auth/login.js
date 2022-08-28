@@ -93,7 +93,8 @@ export default function Login() {
             align="center"
             color="GrayText"
           >
-            Can't Login . <Link href="forgot-password">Forgot Password</Link>
+            {`  Can't Login .`}{" "}
+            <Link href="forgot-password">Forgot Password</Link>
           </Typography>
         </Paper>
       </Grid>
