@@ -2,9 +2,9 @@ import { valueToPercent } from "@mui/base";
 import { Box, IconButton, Typography } from "@mui/material";
 import React from "react";
 import illustration from "../../public/assets/login.jpg";
-export default function Card({ title, value, snack }) {
+export default function Card({ title, value, snack, image }) {
   return (
-    <Box className="image-overview">
+    <Box className={`image-overview ${image}`}>
       <Box
         className={snack}
         sx={{

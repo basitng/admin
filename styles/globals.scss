@@ -39,9 +39,16 @@ a {
   text-decoration: underline;
   // background-color: #3947a8b9;
 }
-
-.image-overview {
+.image-overview1 {
+  background-image: url("../public/assets/art2.jpg");
+}
+.image-overview3 {
   background-image: url("../public/assets/login.jpg");
+}
+.image-overview2 {
+  background-image: url("../public/assets/bed.jpg");
+}
+.image-overview {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

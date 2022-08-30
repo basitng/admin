@@ -1,9 +1,11 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
+import ActivitiesBar from "../src/components/Activities";
 import AppBar from "../src/components/AppBar";
 import Card from "../src/components/Card";
 import DataTable from "../src/components/DataTable";
+import SideContent from "../src/components/SideContent";
 import StorageOverview from "../src/components/Storage";
 
 export default function dashboard() {
@@ -14,6 +16,7 @@ export default function dashboard() {
       path: "articles/",
       id: Math.random() * 100000000,
       snack: "snack1",
+      image: "image-overview1",
     },
     {
       title: "Contents",
@@ -21,6 +24,7 @@ export default function dashboard() {
       path: "contents/",
       id: Math.random() * 100000000,
       snack: "snack2",
+      image: "image-overview2",
     },
     {
       title: "Sermon",
@@ -28,12 +32,13 @@ export default function dashboard() {
       path: "sermon/",
       id: Math.random() * 100000000,
       snack: "snack3",
+      image: "image-overview3",
     },
   ];
   return (
     <React.Fragment>
       <AppBar />
-      <Grid container spacing={2}>
+      <Grid container spacing={0}>
         <Grid item xs={12} md={9} lg={9} sm={12}>
           <Container
             sx={(theme) => ({
@@ -47,9 +52,15 @@ export default function dashboard() {
               Dashbaord Overview
             </Typography>
             <Grid container spacing={2}>
-              {Overview.map(({ title, value, path, id, snack }) => (
+              {Overview.map(({ title, value, path, id, snack, image }) => (
                 <Grid item xs={12} md={4} lg={4} sm={6} xl={4} key={id}>
-                  <Card title={title} value={value} path={path} snack={snack} />
+                  <Card
+                    title={title}
+                    value={value}
+                    path={path}
+                    snack={snack}
+                    image={image}
+                  />
                 </Grid>
               ))}
             </Grid>
@@ -86,7 +97,19 @@ export default function dashboard() {
               },
             })}
           >
-            <StorageOverview />
+            <Container>
+              <Grid container spacing={2} flexDirection="column">
+                <Grid item xs={12} lg={12} sm={12} md={12}>
+                  <StorageOverview />
+                </Grid>
+                <Grid item xs={12} lg={12} sm={12} md={12}>
+                  <SideContent />
+                </Grid>
+                <Grid item xs={12} lg={12} sm={12} md={12}>
+                  <ActivitiesBar />
+                </Grid>
+              </Grid>
+            </Container>
           </Box>
         </Grid>
       </Grid>
