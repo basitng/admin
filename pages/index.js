@@ -41,12 +41,12 @@ export default function dashboard() {
       <AppBar />
 
       <Grid container spacing={0}>
-        <Hidden xsDown>
-          <Grid item md={3} lg={2} sm={3}>
+        <Hidden mdDown>
+          <Grid item md={3} lg={2}>
             <Sidebar />
           </Grid>
         </Hidden>
-        <Grid item md={9} lg={10} sm={9} xs={12}>
+        <Grid item md={9} lg={10} sm={12} xs={12}>
           <Grid container>
             <Grid item xs={12} md={9} lg={9} sm={12}>
               <Container

@@ -4,6 +4,7 @@ import {
   Avatar,
   Badge,
   Button,
+  Hidden,
   IconButton,
   Toolbar,
   Tooltip,
@@ -11,6 +12,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useId } from "react";
+import BottomNav from "./BottomNav";
 
 export default function NavBar() {
   const drawerWidth = 240;
@@ -26,42 +28,79 @@ export default function NavBar() {
       variant="elevation"
       color="inherit"
       elevation={3}
-      sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+      sx={(theme) => ({
+        width: `calc(100% - ${drawerWidth}px)`,
+        ml: `${drawerWidth}px`,
+        [theme.breakpoints.down("md")]: {
+          width: "100%",
+          ml: 0,
+        },
+      })}
     >
       <Toolbar>
-        <Box sx={{ flex: 1 }}></Box>
-        <Box sx={{ display: "flex" }}>
-          {links.map(({ pathname, id, active, path }) => (
-            <Button
-              key={id}
-              disableElevation
-              variant={active ? "contained" : "text"}
-              sx={{
-                mr: 2,
-                color: active ? "white" : "#555",
-                textTransform: "capitalize",
-                background: active && "#3948a8dc",
-              }}
-            >
-              {pathname}
-            </Button>
-          ))}
-          <Tooltip title={"Notifications"}>
-            <Box></Box>
-          </Tooltip>
-          <Tooltip title={"Notifications"}>
-            <IconButton sx={{ mr: 2 }}>
-              <Badge badgeContent={3} variant="standard" color="secondary">
-                <NotificationsOutlined />
-              </Badge>
-            </IconButton>
-          </Tooltip>
-          <Tooltip title={"User Account"}>
-            <Avatar sx={{ background: "#3948a8dc", cursor: "pointer" }}>
-              A
-            </Avatar>
-          </Tooltip>
-        </Box>
+        <Hidden smDown>
+          <Hidden only="lg">
+            <Box sx={{ flex: 1 }}>Dashboard</Box>
+          </Hidden>
+          <Hidden mdDown>
+            <Box sx={{ flex: 1 }}></Box>
+          </Hidden>
+          <Box sx={{ display: "flex" }}>
+            {links.map(({ pathname, id, active, path }) => (
+              <Button
+                key={id}
+                disableElevation
+                variant={active ? "contained" : "text"}
+                sx={{
+                  mr: 2,
+                  color: active ? "white" : "#555",
+                  textTransform: "capitalize",
+                  background: active && "#3948a8dc",
+                }}
+              >
+                {pathname}
+              </Button>
+            ))}
+            <Tooltip title={"Notifications"}>
+              <Box></Box>
+            </Tooltip>
+            <Tooltip title={"Notifications"}>
+              <IconButton sx={{ mr: 2 }}>
+                <Badge badgeContent={3} variant="standard" color="secondary">
+                  <NotificationsOutlined />
+                </Badge>
+              </IconButton>
+            </Tooltip>
+            <Tooltip title={"User Account"}>
+              <Avatar sx={{ background: "#3948a8dc", cursor: "pointer" }}>
+                A
+              </Avatar>
+            </Tooltip>
+          </Box>
+        </Hidden>
+        <Hidden mdUp>
+          <Box sx={{ flex: 1 }}>
+            <Typography variant="h6">Dashboard</Typography>
+          </Box>
+          <Box sx={{ display: "flex" }}>
+            <Tooltip title={"Notifications"}>
+              <Box></Box>
+            </Tooltip>
+            <Tooltip title={"Notifications"}>
+              <IconButton sx={{ mr: 2 }}>
+                <Badge badgeContent={3} variant="standard" color="secondary">
+                  <NotificationsOutlined />
+                </Badge>
+              </IconButton>
+            </Tooltip>
+            <Tooltip title={"User Account"}>
+              <Avatar sx={{ background: "#3948a8dc", cursor: "pointer" }}>
+                A
+              </Avatar>
+            </Tooltip>
+          </Box>
+          <BottomNav />
+        </Hidden>
       </Toolbar>
     </AppBar>
   );

@@ -59,7 +59,7 @@ a {
   display: grid;
   place-content: center;
   @media screen and (max-width: 600px) {
-    height: 20vh;
+    height: 40vh;
   }
   &::before {
     content: "";
