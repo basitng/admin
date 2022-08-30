@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import { indigo } from "@mui/material/colors";
+import { orange, indigo } from "@mui/material/colors";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -7,6 +7,9 @@ function MyApp({ Component, pageProps }) {
     palette: {
       primary: {
         main: indigo[600],
+      },
+      secondary: {
+        main: orange[900],
       },
     },
     typography: {

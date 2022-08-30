@@ -1,7 +1,10 @@
+import { NotificationsOutlined } from "@mui/icons-material";
 import {
   AppBar,
   Avatar,
+  Badge,
   Button,
+  IconButton,
   Toolbar,
   Tooltip,
   Typography,
@@ -10,6 +13,7 @@ import { Box } from "@mui/system";
 import React, { useId } from "react";
 
 export default function NavBar() {
+  const drawerWidth = 240;
   const links = [
     { pathname: "Dashboard", active: true, path: "dashboard/", id: useId() },
     { pathname: "Content", active: false, path: "content/", id: useId() },
@@ -22,14 +26,10 @@ export default function NavBar() {
       variant="elevation"
       color="inherit"
       elevation={3}
-      sx={{ width: "100%" }}
+      sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
     >
       <Toolbar>
-        <Box sx={{ flex: 1 }}>
-          <Typography variant="h6" color="GrayText">
-            Dashboard
-          </Typography>
-        </Box>
+        <Box sx={{ flex: 1 }}></Box>
         <Box sx={{ display: "flex" }}>
           {links.map(({ pathname, id, active, path }) => (
             <Button
@@ -48,6 +48,13 @@ export default function NavBar() {
           ))}
           <Tooltip title={"Notifications"}>
             <Box></Box>
+          </Tooltip>
+          <Tooltip title={"Notifications"}>
+            <IconButton sx={{ mr: 2 }}>
+              <Badge badgeContent={3} variant="standard" color="secondary">
+                <NotificationsOutlined />
+              </Badge>
+            </IconButton>
           </Tooltip>
           <Tooltip title={"User Account"}>
             <Avatar sx={{ background: "#3948a8dc", cursor: "pointer" }}>
