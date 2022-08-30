@@ -35,7 +35,7 @@ export default function SideContent() {
           <Typography variant="body1">Pastors</Typography>
         </ListSubheader>
         {pastors.map((pastor) => (
-          <ListItem key={useId()} alignItems="flex-start" button>
+          <ListItem key={Math.random() * 200000} alignItems="flex-start" button>
             <ListItemAvatar>
               <Avatar alt="Remy Sharp" src={pastor.picture} />
             </ListItemAvatar>

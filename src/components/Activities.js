@@ -43,7 +43,7 @@ export default function ActivitiesBar() {
           <Typography variant="body2">Real-time activities tracker</Typography>
         </ListSubheader>
         {Recent.map((activity) => (
-          <ListItem alignItems="flex-start" button key={useId()}>
+          <ListItem alignItems="flex-start" button key={Math.random() * 20000}>
             <ListItemAvatar>
               <Avatar alt="Remy Sharp" src={activity.picture} />
             </ListItemAvatar>
